@@ -1,113 +1,129 @@
-import Image from "next/image";
+"use client"
+import React, { useState } from 'react'
+import { FaSignal } from "react-icons/fa";
+import { FaWifi } from "react-icons/fa";
+import { BiSolidBattery } from "react-icons/bi";
+import { RxCross2 } from "react-icons/rx";
+import { RiThumbDownFill } from "react-icons/ri";
+import { RiThumbUpFill } from "react-icons/ri";
+import { GoStarFill } from "react-icons/go";
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+const Page = () => {
+
+    const [yes_no, setYes_No] = useState<boolean>(true)
+    const [safety, setSafety] = useState<number>(0)
+    const [communication, setCommunication] = useState<number>(0)
+
+    return (
+        <div className='h-screen bg-slate-700 flex justify-center items-center text-black'>
+            <div className='bg-slate-200 flex-col rounded-xl'>
+                <div className='sm:m-8 m-6 grid sm:gap-10 gap-8'>
+                    <div className='flex justify-between'>
+                        <div>9:41</div>
+                        <div className='flex gap-1'>
+                            <div><FaSignal /></div>
+                            <div><FaWifi /></div>
+                            <div><BiSolidBattery /></div>
+                        </div>
+                    </div>
+                    <div className='grid sm:gap-3 gap-2 sm:text-3xl text-2xl' >
+                        <div><RxCross2 /></div>
+                        <div>
+                            <h1 className='font-bold '>
+                                leave a review
+                            </h1>
+                        </div>
+                    </div>
+                    <div className='grid sm:gap-3 gap-2' >
+                        <div>
+                            <h2 className='sm:text-2xl text-xl font-semibold '>Safety</h2>
+                        </div>
+                        <div>
+                            <h3 className='text-gray-500'>Lorem ipsum, dolor sit amet</h3>
+                        </div>
+                        <div >
+                            <fieldset className='flex sm:text-3xl text-2xl'>
+                                <label >
+                                    <input className='hidden' onClick={() => setSafety(1)} type="radio" name="safety_rating" value="1" />
+                                    <GoStarFill className={`${safety >= 1 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                                <label >
+                                    <input className='hidden' onClick={() => setSafety(2)} type="radio" name="safety_rating" value="2" />
+                                    <GoStarFill className={`${safety >= 2 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                                <label >
+                                    <input className='hidden' onClick={() => setSafety(3)} type="radio" name="safety_rating" value="3" />
+                                    <GoStarFill className={`${safety >= 3 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                                <label >
+                                    <input className='hidden' onClick={() => setSafety(4)} type="radio" name="safety_rating" value="4" />
+                                    <GoStarFill className={`${safety >= 4 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                                <label >
+                                    <input className='hidden' onClick={() => setSafety(5)} type="radio" name="safety_rating" value="5" />
+                                    <GoStarFill className={`${safety >= 5 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div className='grid sm:gap-3 gap-2' >
+                        <div>
+                            <h2 className='sm:text-2xl text-xl font-semibold '>Communication</h2>
+                        </div>
+                        <div>
+                            <h3 className='text-gray-500'>Lorem ipsum, dolor sit amet</h3>
+                        </div>
+                        <div>
+                            <fieldset className='flex sm:text-3xl text-2xl'>
+                                <label >
+                                    <input className='hidden' onClick={() => setCommunication(1)} type="radio" name="communication_rating" value="1" />
+                                    <GoStarFill className={`${communication >= 1 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                                <label >
+                                    <input className='hidden' onClick={() => setCommunication(2)} type="radio" name="communication_rating" value="2" />
+                                    <GoStarFill className={`${communication >= 2 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                                <label >
+                                    <input className='hidden' onClick={() => setCommunication(3)} type="radio" name="communication_rating" value="3" />
+                                    <GoStarFill className={`${communication >= 3 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                                <label >
+                                    <input className='hidden' onClick={() => setCommunication(4)} type="radio" name="communication_rating" value="4" />
+                                    <GoStarFill className={`${communication >= 4 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                                <label >
+                                    <input className='hidden' onClick={() => setCommunication(5)} type="radio" name="communication_rating" value="5" />
+                                    <GoStarFill className={`${communication >= 5 ? "text-yellow-600 " : "text-gray-400"}`} />
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div className='grid sm:gap-3 gap-2' >
+                        <div>
+                            <h2 className='sm:text-2xl text-xl font-semibold '>Would you recommend trusti?</h2>
+                        </div>
+                        <div>
+                            <h3 className='text-gray-500'>Lorem ipsum, dolor sit amet</h3>
+                        </div>
+                        <div>
+                            <fieldset className='flex sm:text-3xl text-2xl sm:gap-20 gap-16'>
+                                <label className='flex gap-4'>
+                                    <input className='hidden' onClick={() => setYes_No(prev => !prev)} type="radio" name="yes_no" value="yes" />
+                                    <RiThumbDownFill style={{ transform: 'scaleX(-1)' }}  className={`${yes_no ? "text-green-600 " : "text-gray-400"}`} />
+                                    <span className='text-base'>No</span>
+                                </label>
+                                <label className='flex gap-4'>
+                                    <input className='hidden' onClick={() => setYes_No(prev => !prev)} type="radio" name="yes_no" value="no" />
+                                    <RiThumbUpFill className={`${yes_no ? "text-gray-400" : "text-green-600"}`} />
+                                    <span className='text-base'>Yes</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    )
 }
+
+export default Page
